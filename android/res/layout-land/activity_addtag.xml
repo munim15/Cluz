@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="40dp"
+    >
+    <LinearLayout
+        android:id="@+id/editText1Holder"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:weightSum="1">
+        <EditText
+            android:id="@+id/editText1"
+            android:hint="@string/title_hint"
+            android:maxWidth="10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:layout_weight="0.8"
+            android:layout_marginRight="10dp"/>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2">
+            <Button
+                android:id="@+id/privacy_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/public_globe"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/editText1Holder">
+        <RelativeLayout
+            android:id="@+id/record_buttons_holder"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" >
+            <Button
+                android:id="@+id/playback"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/buttonshape"
+                android:textColor="#ffffff"
+                android:text="Play Back" />
+
+            <Button
+                android:id="@+id/doneButton"
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/buttonshape"
+                android:text="Place Tag"
+                android:layout_below="@id/playback"
+                android:textColor="#ffffff" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/record_button_holder"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_toLeftOf="@id/record_buttons_holder"
+            android:layout_alignWithParentIfMissing="true">
+            <Button
+                android:id="@+id/startrec"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:background="@drawable/record_red"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</RelativeLayout>

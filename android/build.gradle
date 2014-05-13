@@ -1,0 +1,92 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.9.0'
+    }
+}
+
+apply plugin: 'android'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:+'
+    compile 'com.google.android.gms:play-services:4.3.23'
+    compile 'com.android.support:support-v4:+'
+    compile 'com.google.android.gms:play-services:+'
+    compile files('libs/gcm.jar')
+    compile files('libs/google-api-client-1.15.0-rc.jar')
+    compile files('libs/google-api-client-android-1.15.0-rc.jar')
+    compile files('libs/google-http-client-1.15.0-rc.jar')
+    compile files('libs/google-http-client-android-1.15.0-rc.jar')
+    compile files('libs/google-http-client-gson-1.15.0-rc.jar')
+    compile files('libs/google-http-client-jackson-1.15.0-rc.jar')
+    compile files('libs/google-http-client-jackson2-1.15.0-rc.jar')
+    compile files('libs/google-oauth-client-1.15.0-rc.jar')
+    compile files('libs/jackson-core-2.1.3.jar')
+    compile files('libs/jackson-core-asl-1.9.11.jar')
+    compile files('libs/jsr305-1.3.9.jar')
+    compile files('libs/gson-2.1.jar')
+    compile files('libs/httpclient-4.3.3.jar')
+    compile files('libs/httpclient-cache-4.3.3.jar')
+    compile files('libs/httpcore-4.3.2.jar')
+    compile files('libs/httpmime-4.3.3.jar')
+}
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.3"
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+    }
+
+    sourceSets {
+        main.manifest.srcFile 'AndroidManifest.xml'
+        main.java.srcDirs = ['src/java', 'src', 'cloudBackendAndroidClient/src/main/java']
+        main.resources.srcDirs = ['src']
+        main.aidl.srcDirs = ['src']
+        main.renderscript.srcDirs = ['src']
+        main.res.srcDirs = ['res']
+        main.assets.srcDirs = ['assets']
+
+        // Move the tests to tests/java, tests/res, etc...
+        instrumentTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+
+    // Configure a dedicated debug build (3)
+    task configureDebug << {
+        jar.classifier = "debug"
+    }
+    // Configure a dedicated release build (4)
+    task configureRelease << {
+        proguard.enabled = true
+    }
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+}

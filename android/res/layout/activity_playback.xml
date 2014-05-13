@@ -1,0 +1,80 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="fill_parent"
+   android:layout_height="fill_parent"
+   android:padding="40dp"
+   android:id="@+id/playbackLayout"
+   tools:context=".PlayBackActivity" >
+
+    <LinearLayout
+        android:id="@+id/editText1Holder"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:weightSum="1">
+        <TextView
+            android:id="@+id/titl"
+            android:maxWidth="10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:layout_weight="0.8"
+            android:layout_marginRight="10dp"
+            android:text="Title"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2">
+            <Button
+                android:id="@+id/privacy_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/public_globe"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/play"
+        android:layout_width="@dimen/media_play_button"
+        android:layout_height="@dimen/media_play_button"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/play_red" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnSubmit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:numStars="4"
+        android:rating="2.0"
+        android:stepSize="0.5" />
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/buttonshape"
+        android:text="Submit Rating"
+        android:textColor="#ffffff" />
+    <Button
+        android:id="@+id/btnComment"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:background="@drawable/buttonshape"
+        android:text="View/Add Comment"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>
